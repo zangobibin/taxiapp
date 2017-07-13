@@ -24,6 +24,24 @@ const COLUMNS = [
   "kcal",
   "description"
 ];
+
+const USER_LIST_COLUMNS = [
+  'FIRST_NAME',
+  'LAST_NAME',
+  'EMAIL',
+];
+
+app.get('/api/users', (req, res) => {
+  const r = db.exec(
+    `
+    select ${USER_LIST_COLUMNS.join(', ')} from user
+  `);
+
+  if (r[0]) {
+    res.json(r[0].values);
+  }
+});
+
 app.get("/api/food", (req, res) => {
   const param = req.query.q;
 
