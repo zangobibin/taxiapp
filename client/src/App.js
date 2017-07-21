@@ -45,7 +45,7 @@ class App extends Component {
         <br/>
         <br/>
         <GoogleLogin
-          clientId="AIzaSyBu__4pXUQjYS7CuA3svGmUpWZWUSDhFyQ.apps.googleusercontent.com"
+          clientId="392007607836-v3etv4guvtpue1s9d6l9iiudu3a0e53r.apps.googleusercontent.com"
           buttonText="Login with Google Account"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
