@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoogleLogin from 'react-google-login';
 import logo from './logo.svg';
 import './App.css';
 import UserService from './services/userService';
@@ -27,6 +28,9 @@ class App extends Component {
 
 
   render() {
+    const responseGoogle = (response) => {
+      console.log(response);
+    }
     return (
       <div className='App'>
         <div className='App-header'>
@@ -38,6 +42,14 @@ class App extends Component {
           -- {this.state.email}
         </p>
         <button onClick={() => this.loadUser()}>Get Developer</button>
+        <br/>
+        <br/>
+        <GoogleLogin
+          clientId="AIzaSyBu__4pXUQjYS7CuA3svGmUpWZWUSDhFyQ.apps.googleusercontent.com"
+          buttonText="Login with Google Account"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+        />
       </div>
     );
   }
