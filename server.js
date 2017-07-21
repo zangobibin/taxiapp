@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const sqlite = require("sql.js");
 
-const filebuffer = fs.readFileSync("db/usda-nnd.sqlite3");
+const filebuffer = fs.readFileSync("db/taxi4you.sqlite3");
 
 const db = new sqlite.Database(filebuffer);
 
@@ -34,7 +34,7 @@ const USER_LIST_COLUMNS = [
 app.get('/api/users', (req, res) => {
   const r = db.exec(
     `
-    select ${USER_LIST_COLUMNS.join(', ')} from user
+    select ${USER_LIST_COLUMNS.join(', ')} from USERS
   `);
 
   if (r[0]) {
